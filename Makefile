@@ -1,5 +1,5 @@
 CXX     = g++
-CXXFLAGS = -std=c++11 -Wall -O2 -Isrc
+CXXFLAGS = -std=c++11 -Wall -O2 -Isrc -D_USE_MATH_DEFINES
 
 # Detecta sistema operacional
 OS := $(shell uname 2>/dev/null || echo Windows)
@@ -22,7 +22,7 @@ else
     LDFLAGS  = -lfreeglut -lopengl32 -lglu32 -lgdi32 -lwinmm
     CXXFLAGS += -DFREEGLUT_STATIC
     EXE_EXT  = .exe
-    RM_CMD   = del /f /q
+    RM_CMD   = rm -f
 endif
 
 # Coleta todos os .cpp em src/, src/ui/, src/engine/, src/viewport/
