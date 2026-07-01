@@ -174,10 +174,10 @@ void executorRun(const std::vector<Block>& script,
     for (const Block& b : script) {
         if (!b.enabled) continue;
         if (b.type == BLK_CAM_PERSPECTIVE) {
-            float fov  = b.params[0] > 0  ? b.params[0] : 60.f;
-            float near = b.params[1] > 0  ? b.params[1] : 0.1f;
-            float far  = b.params[2] > 10 ? b.params[2] : 50.f;
-            gluPerspective(fov, aspect, near, far);
+            float fov     = b.params[0] > 0  ? b.params[0] : 60.f;
+            float nearVal = b.params[1] > 0  ? b.params[1] : 0.1f;
+            float farVal  = b.params[2] > 10 ? b.params[2] : 50.f;
+            gluPerspective(fov, aspect, nearVal, farVal);
             foundCam = true; break;
         }
         if (b.type == BLK_CAM_ORTHO) {
